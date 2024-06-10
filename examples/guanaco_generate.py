@@ -41,7 +41,8 @@ model = AutoModelForCausalLM.from_pretrained(
     model_name_or_path,
     torch_dtype=torch.bfloat16,
     device_map={"": 0},
-    load_in_4bit=True,
+    #load_in_4bit is already set in config, it can't be twice!
+    #load_in_4bit=True,
     quantization_config=BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_compute_dtype=torch.bfloat16,
